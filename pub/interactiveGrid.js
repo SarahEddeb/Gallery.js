@@ -16,6 +16,7 @@ function Row(num_items, row_height, slider) {
     this.row.style.display = "flex";
     this.row.style.marginTop = "2vh";
     this.items = [];
+    this.num_items = num_items;
     this.height = row_height
     this.slider = null;
     this.reset = null;
