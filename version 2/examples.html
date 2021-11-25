@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>JS Libraries</title>
+    <link href="../version 2/interactiveGrid.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+ </head>
+ <body>
+    <header>
+        <div>
+            <div>
+                <img src="../SVG/Asset 1.svg" alt="grids logo" class="icon">
+            </div>
+            <div style="width: 50%;">
+                <h3>
+                    This JavaScript library makes your galleries an interactive piece of your website!
+                </h3>
+            </div>
+        </div>
+    </header>
+
+    <!-- First we load jquery from a Google CDN (content delivery network). -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="interactiveGrid.js"></script>
+    <script type="text/javascript" src="examples.js"></script>
+<!-- 
+    <div>
+        <h3>The Classic</h3>
+        <p class="small_p">
+            Try dragging the different elements around to mess the order. Maybe you'd like to create an aesthetic feed
+        </p>
+        <p class="small_p">
+            Animations getting annoying? Toggle them off
+        </p>
+        <p class="small_p">
+            Display the feed vertically instead
+        </p>
+    </div>
+ 	<div class="flex_container">
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1625671680827-fdc3014d516d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1629872874038-b1d600221640?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1633684801944-e6f68e10e439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+    </div>
+
+    <div>
+        <h3>The Spotlight</h3>
+        <p class="small_p">
+            Adjust the slider to increase and decrease the height
+        </p>
+    </div>
+ 	<div class="flex_container">
+         <div class="gr-3" style="background: url('https://images.unsplash.com/photo-1625671680827-fdc3014d516d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1629872874038-b1d600221640?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1633684801944-e6f68e10e439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+    </div>
+
+ 	<div class="flex_container">
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1625671680827-fdc3014d516d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-3" style="background: url('https://images.unsplash.com/photo-1629872874038-b1d600221640?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+         <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1633684801944-e6f68e10e439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+    </div>
+
+    <div class="flex_container">
+        <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1625671680827-fdc3014d516d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80') no-repeat center center #eee; background-size: cover;"></div>
+        <div class="gr-1" style="background: url('https://images.unsplash.com/photo-1629872874038-b1d600221640?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+        <div class="gr-3" style="background: url('https://images.unsplash.com/photo-1633684801944-e6f68e10e439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80') no-repeat center center #eee; background-size: cover;"></div>
+   </div> -->
+
+  
+
+ </body>
+</html>
