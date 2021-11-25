@@ -6,7 +6,7 @@ let link = document.createElement("link");
 
 link.rel = "stylesheet";
 link.type = "text/css";
-link.href = "../version 2/interactiveGrid.css";
+link.href = "../pub/interactiveGrid.css";
 
 
 const body = document.querySelector('body')
