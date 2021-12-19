@@ -17,11 +17,8 @@ app.get("/", function (req, res) {
 })
 
 app.get("/pub/gridsLanding", function (req, res) {
-    // res.sendFile(path.resolve(__dirname, "build", '/pub/gridsLanding.html'));
-
+    // res.sendFile(path.resolve(__dirname, "build", '/pub/gridsLanding.html'))
     res.sendFile(path.join(__dirname + '/pub/gridsLanding.html'));
-    // res.sendFile(path.join(__dirname + '/pub/gridsExample.html'));
-    // res.sendFile(path.join(__dirname + '/pub/grids.html'));
 })
 
 app.get("/pub/gridsExample", function (req, res) {
