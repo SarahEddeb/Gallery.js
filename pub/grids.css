@@ -101,3 +101,29 @@ p {
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
+
+/* #landing {
+    display: block;
+    visibility: visible;
+}
+
+#examples {
+    display: none !important;
+    visibility: hidden !important;
+} */
+
+/* .examples {
+    display: none !important;
+    visibility: hidden !important;
+} */
+
+/* #api {
+    display: none !important;
+    visibility: hidden !important;
+
+} */
+
+.hide {
+    display: none !important;
+    /* visibility: hidden !important; */
+}
