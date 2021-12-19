@@ -9,7 +9,7 @@ const app = express()
 app.use(express.static(__dirname + '/pub'))
 
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname + '/pub/examples.html'));
+    res.sendFile(path.join(__dirname + '/pub/gridsLanding.html'));
 })
 
 app.listen(process.env.PORT || 9000, 
