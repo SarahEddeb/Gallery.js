@@ -2,7 +2,7 @@
 
 ## Grids JavaScript Library Link
 
-* [Click here to check ou the demo site!] (https://gallerygrids2.herokuapp.com/gridsLanding.html)
+[Click here to check ou the demo site!] (https://gallerygrids2.herokuapp.com/gridsLanding.html)
 
 ## Built With
 
@@ -12,7 +12,7 @@
 
 ## Getting Started
 
-* [Click here to see documentation] (https://gallerygrids2.herokuapp.com/gridsAPI.html)
+[Click here to see documentation] (https://gallerygrids2.herokuapp.com/gridsAPI.html)
 
 * Download the repo
 * Install npm ``` npm install ```
