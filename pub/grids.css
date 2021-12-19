@@ -52,7 +52,7 @@ h3 {
 }
 
 h4 {
-    color: rgb(187, 255, 0);
+    color: cyan;
     font-size: 1.5em;
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
@@ -80,13 +80,12 @@ p {
     border-radius: 50px;
     border: solid 1px azure;
     padding: 10px 50px;
+    transition: background-color 0.5s ease;
 }
 
 .button:hover{
     background-color: azure;
     color: #0a0c0e;
-
-
 }
 
 .method {
