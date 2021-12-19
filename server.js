@@ -22,7 +22,6 @@ app.get("/pub/gridsLanding", function (req, res) {
 })
 
 app.get("/pub/gridsExample", function (req, res) {
-    // res.sendFile(path.resolve(__dirname, "build", '/pub/gridsLanding.html'));
 
     res.sendFile(path.join(__dirname + '/pub/gridsExample.html'));
     // res.sendFile(path.join(__dirname + '/pub/gridsExample.html'));
