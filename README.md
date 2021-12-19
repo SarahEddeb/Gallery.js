@@ -1,8 +1,7 @@
 # js-library-eddebsar
 
 ## Grids JavaScript Library Link
-
-[Click here to check ou the demo site!] (https://gallerygrids2.herokuapp.com/gridsLanding.html)
+https://gallerygrids2.herokuapp.com/gridsLanding.html
 
 ## Built With
 
@@ -12,17 +11,23 @@
 
 ## Getting Started
 
-[Click here to see documentation] (https://gallerygrids2.herokuapp.com/gridsAPI.html)
+Documentation Link
+https://gallerygrids2.herokuapp.com/gridsAPI.html
 
 * Download the repo
 * Install npm ``` npm install ```
-* Run npm ``` npm start ```
 
 * In your html file, add the following script:
 ```
 <script type="text/javascript" src="grids.js"></script>
 ```
-
+```
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+```
+```
+<link href="grids.css" rel="stylesheet">
+```
+* You're all set!
 
 ## Authors
 
