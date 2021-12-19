@@ -103,6 +103,7 @@ Row.prototype = {
     },
     removeMargins: function(){
         this.row.style.margin = "0";
+        this.row.style.width="100%"
         for (let i=0; i < this.items.length; i++) {
             this.items[i].removeMargins();
         }
