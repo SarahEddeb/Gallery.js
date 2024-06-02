@@ -2,23 +2,27 @@
   "name": "grids",
   "version": "1.0.0",
   "description": "Interactive Grids",
-  "main": "server.js",
+  "main": "pub/grids.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/csc309-fall-2021/js-library-eddebsar.git"
+    "url": "git+https://github.com/SarahEddeb/Grids"
   },
   "author": "Sarah Eddeb",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/csc309-fall-2021/js-library-eddebsar/issues"
+    "url": "https://github.com/SarahEddeb/Grids/issues"
   },
-  "homepage": "https://github.com/csc309-fall-2021/js-library-eddebsar#readme",
+  "homepage": "https://saraheddeb.github.io/Grids/pub/gridsLanding.html",
   "dependencies": {
     "express": "^4.19.2"
   },
-  "keywords": []
+  "keywords": [
+    "grids",
+    "interactive",
+    "javascript"
+  ]
 }
