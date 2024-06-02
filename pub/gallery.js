@@ -53,6 +53,8 @@ function Row(num_items, row_height, slider) {
     this.sliderContainer.style.marginLeft = this.row.style.marginLeft
     body.append(this.sliderContainer);
     body.append(this.row);
+
+    return this.row;
 }
 
 Row.prototype = {
@@ -311,3 +313,5 @@ Item.prototype = {
     //     this.item.appendChild(heading)
     // }
 }
+
+export default Row;
