@@ -1,12 +1,12 @@
 "use strict";
 const log = console.log;
-log("interactiveGrid.js");
+log("gallery.js");
 
 let link = document.createElement("link");
 
 link.rel = "stylesheet";
 link.type = "text/css";
-link.href = "../pub/interactiveGrid.css";
+link.href = "../pub/gallery.css";
 
 const body = document.querySelector('body')
 
