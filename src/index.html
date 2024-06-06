@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Test</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="gallery-container" style="width: 100%;"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script type="module">
+    import Row from "./gallery2.js";
+
+    // Create a new Row instance with 3 columns and height of 100px
+    const row = new Row(7, '300px');
+    row.addHoverAnimation("height");
+    // const row2 = new Row(4, "200px");
+    // const row3 = new Row(3, "200px");
+
+
+    console.log(row)
+    // Append the generated Row element to the container
+    document.getElementById('gallery-container').appendChild(row.element);
+    // document.getElementById('gallery-container').appendChild(row2.element);
+    // document.getElementById('gallery-container').appendChild(row3.element);
+
+  </script>
+</body>
+</html>
