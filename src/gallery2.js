@@ -6,26 +6,69 @@ const alignmentTypesTop = ["top", "start", "flex-start"];
 const alignmentTypesBottom = ["bottom", "end", "flex-end"];
 const alignmentTypesCenter = ["center", "centre", "middle"];
 const validUnits = ["px", "vh", "vw", "em", "rem", "%"];
+const marginLeft = "left";
+const marginRight = "right";
+const marginTop = "top";
+const marginBottom = "bottom";
 class Row {
   constructor(columns, height) {
     this.columns = columns;
-    this.height = height;
+    this.height = height.slice(0, height.length - 2);
     this.items = [];
 
     this.element = document.createElement("div");
     this.element.style.display = "flex";
     this.element.style.flexDirection = "row";
-    // this.element.style.backgroundColor = "white";
+    this.element.style.backgroundColor = "white";
     this.element.style.width = "100%";
     this.element.style.gap = "5px";
+    this.h_unit = height[height.length - 2] + height[height.length - 1];
 
     for (let i = 0; i < columns; i++) {
-      let temp_item = new Item(this.height);
+      let temp_item = new Item(this.height + this.h_unit);
 
       this.items.push(temp_item);
       this.element.append(temp_item.element);
     }
   }
+
+  addPadding(padding, direction) {
+    if (typeof padding === "string") {
+      for (const unit of validUnits) {
+        if (padding.includes(unit)) {
+          if (direction) {
+            if (direction === marginTop) {
+              this.element.style.paddingTop = padding;
+              break;
+            } else if (direction === marginBottom) {
+              this.element.style.paddingBottom = padding;
+              break;
+            } else if (direction === marginLeft) {
+              this.element.style.paddingLeft = padding;
+              break;
+            } else if (direction === marginRight) {
+              this.element.style.paddingRight = padding;
+              break;
+            }
+          } else {
+            this.element.style.padding = padding;
+            break;
+          }
+        }
+      }
+
+      // this.element.style.width = "100%";
+      // for (const item of this.items) {
+      //   item.element.style.flexGrow = "1";
+      // }
+    } else {
+      console.log(
+        `invalid margin type or unit type: ${margin} ${typeof margin}`
+      );
+      console.log(`valid unit types include ${validUnits}`);
+    }
+  }
+
   alignRow(direction) {
     if (alignmentTypesTop.includes(direction.toLowerCase())) {
       this.element.style.alignItems = "flex-start";
@@ -51,10 +94,16 @@ class Row {
   }
 
   addHoverAnimation(type) {
+
     for (let i = 0; i < this.items.length; i++) {
       this.items[i].addEventListener(type);
       this.items[i].hasListner = true;
     }
+  }
+
+  fixRow() {
+    this.element.style.height = this.height * 1.5 + this.h_unit;
+    console.log("this is the height: ", this.element.style.height)
   }
 
   addImage(itemNum, url) {
