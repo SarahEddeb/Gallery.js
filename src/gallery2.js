@@ -5,7 +5,7 @@ console.log("gallery.js...");
 const alignmentTypesTop = ["top", "start", "flex-start"];
 const alignmentTypesBottom = ["bottom", "end", "flex-end"];
 const alignmentTypesCenter = ["center", "centre", "middle"];
-
+const validUnits = ["px", "vh", "vw", "em", "rem", "%"];
 class Row {
   constructor(columns, height) {
     this.columns = columns;
@@ -15,7 +15,7 @@ class Row {
     this.element = document.createElement("div");
     this.element.style.display = "flex";
     this.element.style.flexDirection = "row";
-    this.element.style.backgroundColor = "green";
+    // this.element.style.backgroundColor = "white";
     this.element.style.width = "100%";
     this.element.style.gap = "5px";
 
@@ -36,10 +36,33 @@ class Row {
     }
   }
 
+  changeGap(gap) {
+    if (typeof gap === "string") {
+      for (const unit of validUnits) {
+        if (gap.includes(unit)) {
+          this.element.style.gap = gap;
+          break;
+        }
+      }
+    } else {
+      console.log(`invalid gap type or unit type: ${gap} ${typeof gap}`);
+      console.log(`valid unit types include ${validUnits}`);
+    }
+  }
+
   addHoverAnimation(type) {
     for (let i = 0; i < this.items.length; i++) {
       this.items[i].addEventListener(type);
       this.items[i].hasListner = true;
+    }
+  }
+
+  addImage(itemNum, url) {
+    if (itemNum < this.items.length) {
+      this.items[itemNum].element.style.backgroundImage = "url('" + url + "')";
+      this.items[itemNum].element.style.backgroundPosition = "center center";
+      this.items[itemNum].element.style.backgroundRepeat = "no-repeat";
+      this.items[itemNum].element.style.backgroundSize = "cover";
     }
   }
 }
