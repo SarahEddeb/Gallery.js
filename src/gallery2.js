@@ -19,9 +19,9 @@ class Row {
     this.element = document.createElement("div");
     this.element.style.display = "flex";
     this.element.style.flexDirection = "row";
-    this.element.style.backgroundColor = "white";
     this.element.style.width = "100%";
     this.element.style.gap = "5px";
+    this.element.style.boxSizing = "border-box";
     this.h_unit = height[height.length - 2] + height[height.length - 1];
 
     for (let i = 0; i < columns; i++) {
@@ -56,11 +56,6 @@ class Row {
           }
         }
       }
-
-      // this.element.style.width = "100%";
-      // for (const item of this.items) {
-      //   item.element.style.flexGrow = "1";
-      // }
     } else {
       console.log(
         `invalid margin type or unit type: ${margin} ${typeof margin}`
@@ -94,7 +89,6 @@ class Row {
   }
 
   addHoverAnimation(type) {
-
     for (let i = 0; i < this.items.length; i++) {
       this.items[i].addEventListener(type);
       this.items[i].hasListner = true;
@@ -103,7 +97,7 @@ class Row {
 
   fixRow() {
     this.element.style.height = this.height * 1.5 + this.h_unit;
-    console.log("this is the height: ", this.element.style.height)
+    console.log("this is the height: ", this.element.style.height);
   }
 
   addImage(itemNum, url) {
@@ -120,6 +114,7 @@ class Item {
   constructor(height) {
     this.height = height.slice(0, height.length - 2);
     this.width = 1;
+    this.animationSpeed = 200;
 
     this.element = document.createElement("div");
     this.element.style.height = height;
@@ -131,17 +126,15 @@ class Item {
   }
 
   addEventListener(type) {
-    // if (this.hasListner) {
-    //   return null;
-    // }
     if (type.toLowerCase() === "width") {
       this.element.addEventListener("mouseover", () => {
-        $(this.element).animate({ flexGrow: this.width * 2 }, 200);
-        // log(this.order);
+        $(this.element).animate(
+          { flexGrow: this.width * 2 },
+          this.animationSpeed
+        );
       });
       this.element.addEventListener("mouseout", () => {
-        $(this.element).animate({ flexGrow: this.width }, 200);
-        // log(this.order);
+        $(this.element).animate({ flexGrow: this.width }, this.animationSpeed);
       });
     } else if (type.toLowerCase() === "height") {
       this.element.addEventListener(
@@ -149,11 +142,8 @@ class Item {
         () => {
           $(this.element).animate(
             { height: this.height * 1.5 + this.h_unit },
-            200
+            this.animationSpeed
           );
-          // console.log("am i getting here?");
-          // console.log(this.height)
-          // console.log(this.height * 1.5 + this.h_unit);
         },
         true
       );
@@ -161,18 +151,19 @@ class Item {
       this.element.addEventListener(
         "mouseout",
         () => {
-          $(this.element).animate({ height: this.height + this.h_unit }, 200);
-          //   console.log(this.order);
+          $(this.element).animate(
+            { height: this.height + this.h_unit },
+            this.animationSpeed
+          );
         },
         true
       );
     } else if (type.toLowerCase() === "round") {
       this.element.addEventListener("mouseover", () => {
-        $(this.element).animate({ borderRadius: "150px" }, 200);
+        $(this.element).animate({ borderRadius: "150px" }, this.animationSpeed);
       });
       this.element.addEventListener("mouseout", () => {
-        $(this.element).animate({ borderRadius: "0px" }, 200);
-        // log(this.order);
+        $(this.element).animate({ borderRadius: "0px" }, this.animationSpeed);
       });
     } else if (type.toLowerCase() === "combo") {
       this.element.addEventListener("mouseover", () => {
@@ -181,13 +172,13 @@ class Item {
             flexGrow: this.width * 2,
             height: this.height * 1.75 + this.h_unit,
           },
-          200
+          this.animationSpeed
         );
       });
       this.element.addEventListener("mouseout", () => {
         $(this.element).animate(
           { flexGrow: this.width, height: this.height + this.h_unit },
-          200
+          this.animationSpeed
         );
       });
     }
