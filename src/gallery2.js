@@ -2,6 +2,10 @@
 
 console.log("gallery.js...");
 
+const alignmentTypesTop = ["top", "start", "flex-start"];
+const alignmentTypesBottom = ["bottom", "end", "flex-end"];
+const alignmentTypesCenter = ["center", "centre", "middle"];
+
 class Row {
   constructor(columns, height) {
     this.columns = columns;
@@ -11,7 +15,6 @@ class Row {
     this.element = document.createElement("div");
     this.element.style.display = "flex";
     this.element.style.flexDirection = "row";
-    // this.element.style.height = height;
     this.element.style.backgroundColor = "green";
     this.element.style.width = "100%";
     this.element.style.gap = "5px";
@@ -21,6 +24,15 @@ class Row {
 
       this.items.push(temp_item);
       this.element.append(temp_item.element);
+    }
+  }
+  alignRow(direction) {
+    if (alignmentTypesTop.includes(direction.toLowerCase())) {
+      this.element.style.alignItems = "flex-start";
+    } else if (alignmentTypesBottom.includes(direction.toLowerCase())) {
+      this.element.style.alignItems = "flex-end";
+    } else if (alignmentTypesCenter.includes(direction.toLowerCase())) {
+      this.element.style.alignItems = "center";
     }
   }
 
@@ -44,7 +56,6 @@ class Item {
     this.element.style.backgroundColor = "cyan";
     this.hasListner = false;
     this.h_unit = height[height.length - 2] + height[height.length - 1];
-
   }
 
   addEventListener(type) {
@@ -68,9 +79,9 @@ class Item {
             { height: this.height * 1.5 + this.h_unit },
             200
           );
-            // console.log("am i getting here?");
-            // console.log(this.height)
-            // console.log(this.height * 1.5 + this.h_unit);
+          // console.log("am i getting here?");
+          // console.log(this.height)
+          // console.log(this.height * 1.5 + this.h_unit);
         },
         true
       );
