@@ -10,25 +10,59 @@ const marginLeft = "left";
 const marginRight = "right";
 const marginTop = "top";
 const marginBottom = "bottom";
+
 class Row {
-  constructor(columns, height) {
-    this.columns = columns;
-    this.height = height.slice(0, height.length - 2);
-    this.items = [];
+  constructor(config) {
+    this.columns = config.columns;
+    if (config.height && typeof config.height === "string" && config.height.length > 2) {
+      this.height = config.height.slice(0, config.height.length - 2);
+      this.h_unit = config.height.slice(config.height.length - 2);
+    } else {
+      this.height = "300";
+      this.h_unit = "px";
+    }    this.items = [];
 
     this.element = document.createElement("div");
     this.element.style.display = "flex";
     this.element.style.flexDirection = "row";
     this.element.style.width = "100%";
-    this.element.style.gap = "5px";
+    this.element.style.gap = config.gap || "5px";
     this.element.style.boxSizing = "border-box";
-    this.h_unit = height[height.length - 2] + height[height.length - 1];
+    this.h_unit =
+      config.height[config.height.length - 2] +
+      config.height[config.height.length - 1];
 
-    for (let i = 0; i < columns; i++) {
+    for (let i = 0; i < this.columns; i++) {
       let temp_item = new Item(this.height + this.h_unit);
 
       this.items.push(temp_item);
       this.element.append(temp_item.element);
+    }
+
+    if (config.padding) {
+      this.addPadding(config.padding.value, config.padding.direction);
+    }
+
+    if (config.alignment) {
+      this.alignRow(config.alignment);
+    }
+
+    if (config.hoverAnimation) {
+      this.addHoverAnimation(config.hoverAnimation);
+    }
+
+    if (config.gap) {
+      this.changeGap(config.gap);
+    }
+
+    if (config.fixedHeight) {
+      this.fixRow();
+    }
+
+    if (config.images) {
+      for (const [index, url] of config.images.entries()) {
+        this.addImage(index, url);
+      }
     }
   }
 
@@ -48,6 +82,14 @@ class Row {
               break;
             } else if (direction === marginRight) {
               this.element.style.paddingRight = padding;
+              break;
+            } else if (direction === "x") {
+              this.element.style.paddingRight = padding;
+              this.element.style.paddingLeft = padding;
+              break;
+            } else if (direction === "y") {
+              this.element.style.paddingTop = padding;
+              this.element.style.paddingBottom = padding;
               break;
             }
           } else {
