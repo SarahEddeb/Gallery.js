@@ -1,6 +1,6 @@
 {
   "name": "gallery.js",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "photo gallery javascript library",
   "main": "pub/gallery.js",
   "scripts": {
@@ -21,8 +21,7 @@
     "express": "^4.19.2"
   },
   "keywords": [
-    "phot gallery",
-    "interactive",
+    "photo gallery",
     "javascript"
   ]
 }
