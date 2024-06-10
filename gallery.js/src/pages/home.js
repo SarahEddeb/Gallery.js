@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Row from "photo-gallery.js";
 
@@ -71,45 +71,79 @@ const HeroSection = styled.div`
   flex-direction: column;
   gap: 35px;
   width: 100%;
-  margin-top: 5vh;
+  margin-top: 6vh;
 `;
 
-const RowContainer = styled.div`
-  width: 100%;
-`;
+// const RowContainer = styled.div`
+//   width: 100%;
+// `;
 
 function Home() {
-  const rowRef = useRef(null);
+  useEffect(
+    () =>
+      function MakeRow() {
+        const rowConfig = {
+          columns: 7,
+          height: "200px",
+          gap: "10px",
+          padding: { value: "365px", direction: "top"
+           },
+          alignment: "bottom",
+          hoverAnimation: "combo",
+          fixedHeight: true,
+          images: [
+            "https://images.unsplash.com/photo-1517314597476-e1788060b6cb?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517821099606-cef63a9bcda6?q=80&w=3569&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517137855257-7a5080c05dd8?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517227428644-e7521e622e5a?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517137660927-27542f89984d?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1510234591826-c5a87a6832c9?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1587289517919-b92407d60bbb?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          ],
+        };
+
+        const myRow = new Row(rowConfig);
+        document.body.appendChild(myRow.element);
+
+        return () => {
+          // Perform any cleanup here if needed
+          // For example, remove the row element from the DOM
+          document.body.removeChild(myRow.element);
+        };
+      },
+    []
+  );
+  // const rowRef = useRef(null);
 
   //   function MakeRow() {
-  useEffect(() => {
-    const row = new Row(7, "30vh");
+  // useEffect(() => {
+  //   const row = new Row(7, "30vh");
 
-    row.addBackgroundImg(
-      0,
-      "https://images.unsplash.com/photo-1517315403381-a12569a9da85?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    );
-    row.addBackgroundImg(
-      1,
-      "https://images.unsplash.com/photo-1517314815091-85f25384be22?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    );
-    row.addHoverAnimation("height");
-    row.changeAligment("bottom");
-    row.changeBorderRadius(0);
-    row.changeXMargins(4);
-    //   return row;
+  //   row.addBackgroundImg(
+  //     0,
+  //     "https://images.unsplash.com/photo-1517315403381-a12569a9da85?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  //   );
+  //   row.addBackgroundImg(
+  //     1,
+  //     "https://images.unsplash.com/photo-1517314815091-85f25384be22?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  //   );
+  //   row.addHoverAnimation("height");
+  //   row.changeAligment("bottom");
+  //   row.changeBorderRadius(0);
+  //   row.changeXMargins(4);
+  //   //   return row;
 
-    if (rowRef.current) {
-      rowRef.current.innerHTML = ""; // Clear previous content
-      rowRef.current.appendChild(row.row);
-    }
+  //   if (rowRef.current) {
+  //     rowRef.current.innerHTML = ""; // Clear previous content
+  //     rowRef.current.appendChild(row.row);
+  //   }
 
-    return () => {
-      if (rowRef.current && row.row) {
-        rowRef.current.removeChild(row.row);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (rowRef.current && row.row) {
+  //       rowRef.current.removeChild(row.row);
+  //     }
+  //   };
+  // }, []);
   //   }
   return (
     <div>
@@ -128,7 +162,7 @@ function Home() {
         </ButtonGroup>
       </HeroSection>
 
-      <RowContainer ref={rowRef} />
+      {/* <RowContainer ref={rowRef} /> */}
     </div>
   );
 }
