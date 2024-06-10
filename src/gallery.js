@@ -185,69 +185,54 @@ class Item {
   }
 
   addEventListener(type) {
-    if (typeof jQuery !== "undefined") {
-      if (type.toLowerCase() === "width") {
-        this.element.addEventListener("mouseover", () => {
-          $(this.element).animate(
-            { flexGrow: this.width * 2 },
-            this.animationSpeed
-          );
-        });
-        this.element.addEventListener("mouseout", () => {
-          $(this.element).animate(
-            { flexGrow: this.width },
-            this.animationSpeed
-          );
-        });
-      } else if (type.toLowerCase() === "height") {
-        this.element.addEventListener(
-          "mouseover",
-          () => {
-            $(this.element).animate(
-              { height: this.height * 1.5 + this.h_unit },
-              this.animationSpeed
-            );
-          },
-          true
-        );
+    if (type.toLowerCase() === "width") {
+      console.log("its working here");
+      this.element.addEventListener("mouseover", () => {
+        this.element.style.transition = `flex-grow ${this.animationSpeed}ms ease`;
+        this.element.style.flexGrow = this.width * 2;
+      });
+      this.element.addEventListener("mouseout", () => {
+        this.element.style.transition = `flex-grow ${this.animationSpeed}ms ease`;
+        this.element.style.flexGrow = this.width;
+      });
+    } else if (type.toLowerCase() === "height") {
+      this.element.addEventListener(
+        "mouseover",
+        () => {
+          this.element.style.transition = `height ${this.animationSpeed}ms ease`;
+          this.element.style.height = this.height * 1.5 + this.h_unit;
+        },
+        true
+      );
 
-        this.element.addEventListener(
-          "mouseout",
-          () => {
-            $(this.element).animate(
-              { height: this.height + this.h_unit },
-              this.animationSpeed
-            );
-          },
-          true
-        );
-      } else if (type.toLowerCase() === "round") {
-        this.element.addEventListener("mouseover", () => {
-          $(this.element).animate(
-            { borderRadius: "150px" },
-            this.animationSpeed
-          );
-        });
-        this.element.addEventListener("mouseout", () => {
-          $(this.element).animate({ borderRadius: "0px" }, this.animationSpeed);
-        });
-      } else if (type.toLowerCase() === "combo") {
-        this.element.addEventListener("mouseover", () => {
-          $(this.element).animate(
-            {
-              flexGrow: this.width * 2,
-              height: this.height * 1.75 + this.h_unit,
-            },
-            this.animationSpeed
-          );
-        });
-        this.element.addEventListener("mouseout", () => {
-          $(this.element).animate(
-            { flexGrow: this.width, height: this.height + this.h_unit },
-            this.animationSpeed
-          );
-        });
-      }
+      this.element.addEventListener(
+        "mouseout",
+        () => {
+          this.element.style.transition = `height ${this.animationSpeed}ms ease`;
+          this.element.style.height = this.height + this.h_unit;
+        },
+        true
+      );
+    } else if (type.toLowerCase() === "round") {
+      this.element.addEventListener("mouseover", () => {
+        this.element.style.transition = `border-radius ${this.animationSpeed}ms ease`;
+        this.element.style.borderRadius = "150px";
+      });
+      this.element.addEventListener("mouseout", () => {
+        this.element.style.transition = `border-radius ${this.animationSpeed}ms ease`;
+        this.element.style.borderRadius = "0px";
+      });
+    } else if (type.toLowerCase() === "combo") {
+      this.element.addEventListener("mouseover", () => {
+        this.element.style.transition = `flex-grow ${this.animationSpeed}ms ease, height ${this.animationSpeed}ms ease`;
+        this.element.style.flexGrow = this.width * 2;
+        this.element.style.height = this.height * 1.75 + this.h_unit;
+      });
+      this.element.addEventListener("mouseout", () => {
+        this.element.style.transition = `flex-grow ${this.animationSpeed}ms ease, height ${this.animationSpeed}ms ease`;
+        this.element.style.flexGrow = this.width;
+        this.element.style.height = this.height + this.h_unit;
+      });
     }
   }
 }
