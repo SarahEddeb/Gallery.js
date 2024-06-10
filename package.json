@@ -1,6 +1,6 @@
 {
   "name": "photo-gallery.js",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "description": "photo gallery javascript library",
   "main": "src/gallery.js",
   "scripts": {
@@ -18,7 +18,8 @@
   },
   "homepage": "https://saraheddeb.github.io/Gallery.js/pub/gridsLanding.html",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "jquery": "^3.7.1"
   },
   "keywords": [
     "photo gallery",
