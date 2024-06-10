@@ -1,6 +1,6 @@
 {
   "name": "photo-gallery.js",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "photo gallery javascript library",
   "main": "src/gallery.js",
   "scripts": {
