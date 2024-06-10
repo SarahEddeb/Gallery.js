@@ -11,16 +11,33 @@ const marginRight = "right";
 const marginTop = "top";
 const marginBottom = "bottom";
 
+if (typeof jQuery === "undefined") {
+  import("https://code.jquery.com/jquery-3.6.0.min.js")
+    .then(() => {
+      console.log("jQuery loaded");
+    })
+    .catch((err) => {
+      console.error("Failed to load jQuery:", err);
+    });
+} else {
+  console.log("jQuery already loaded");
+}
+
 class Row {
   constructor(config) {
     this.columns = config.columns;
-    if (config.height && typeof config.height === "string" && config.height.length > 2) {
+    if (
+      config.height &&
+      typeof config.height === "string" &&
+      config.height.length > 2
+    ) {
       this.height = config.height.slice(0, config.height.length - 2);
       this.h_unit = config.height.slice(config.height.length - 2);
     } else {
       this.height = "300";
       this.h_unit = "px";
-    }    this.items = [];
+    }
+    this.items = [];
 
     this.element = document.createElement("div");
     this.element.style.display = "flex";
@@ -168,61 +185,69 @@ class Item {
   }
 
   addEventListener(type) {
-    if (type.toLowerCase() === "width") {
-      this.element.addEventListener("mouseover", () => {
-        $(this.element).animate(
-          { flexGrow: this.width * 2 },
-          this.animationSpeed
-        );
-      });
-      this.element.addEventListener("mouseout", () => {
-        $(this.element).animate({ flexGrow: this.width }, this.animationSpeed);
-      });
-    } else if (type.toLowerCase() === "height") {
-      this.element.addEventListener(
-        "mouseover",
-        () => {
+    if (typeof jQuery !== "undefined") {
+      if (type.toLowerCase() === "width") {
+        this.element.addEventListener("mouseover", () => {
           $(this.element).animate(
-            { height: this.height * 1.5 + this.h_unit },
+            { flexGrow: this.width * 2 },
             this.animationSpeed
           );
-        },
-        true
-      );
-
-      this.element.addEventListener(
-        "mouseout",
-        () => {
+        });
+        this.element.addEventListener("mouseout", () => {
           $(this.element).animate(
-            { height: this.height + this.h_unit },
+            { flexGrow: this.width },
             this.animationSpeed
           );
-        },
-        true
-      );
-    } else if (type.toLowerCase() === "round") {
-      this.element.addEventListener("mouseover", () => {
-        $(this.element).animate({ borderRadius: "150px" }, this.animationSpeed);
-      });
-      this.element.addEventListener("mouseout", () => {
-        $(this.element).animate({ borderRadius: "0px" }, this.animationSpeed);
-      });
-    } else if (type.toLowerCase() === "combo") {
-      this.element.addEventListener("mouseover", () => {
-        $(this.element).animate(
-          {
-            flexGrow: this.width * 2,
-            height: this.height * 1.75 + this.h_unit,
+        });
+      } else if (type.toLowerCase() === "height") {
+        this.element.addEventListener(
+          "mouseover",
+          () => {
+            $(this.element).animate(
+              { height: this.height * 1.5 + this.h_unit },
+              this.animationSpeed
+            );
           },
-          this.animationSpeed
+          true
         );
-      });
-      this.element.addEventListener("mouseout", () => {
-        $(this.element).animate(
-          { flexGrow: this.width, height: this.height + this.h_unit },
-          this.animationSpeed
+
+        this.element.addEventListener(
+          "mouseout",
+          () => {
+            $(this.element).animate(
+              { height: this.height + this.h_unit },
+              this.animationSpeed
+            );
+          },
+          true
         );
-      });
+      } else if (type.toLowerCase() === "round") {
+        this.element.addEventListener("mouseover", () => {
+          $(this.element).animate(
+            { borderRadius: "150px" },
+            this.animationSpeed
+          );
+        });
+        this.element.addEventListener("mouseout", () => {
+          $(this.element).animate({ borderRadius: "0px" }, this.animationSpeed);
+        });
+      } else if (type.toLowerCase() === "combo") {
+        this.element.addEventListener("mouseover", () => {
+          $(this.element).animate(
+            {
+              flexGrow: this.width * 2,
+              height: this.height * 1.75 + this.h_unit,
+            },
+            this.animationSpeed
+          );
+        });
+        this.element.addEventListener("mouseout", () => {
+          $(this.element).animate(
+            { flexGrow: this.width, height: this.height + this.h_unit },
+            this.animationSpeed
+          );
+        });
+      }
     }
   }
 }
