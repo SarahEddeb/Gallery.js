@@ -1,8 +1,8 @@
 {
-  "name": "gallery.js",
+  "name": "photo-gallery.js",
   "version": "2.0.0",
   "description": "photo gallery javascript library",
-  "main": "pub/gallery.js",
+  "main": "src/gallery2.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
