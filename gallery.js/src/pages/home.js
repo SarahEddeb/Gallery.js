@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import Row from "photo-gallery.js";
 import "../index.css";
@@ -83,7 +83,7 @@ const Container = styled.div`
   margin: 0 20%;
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled.span`
   font-family: "Roboto", Helvetica;
   font-size: 20px;
   font-weight: 400;
@@ -143,9 +143,15 @@ const BottomDivLeft = styled.div`
   gap: 20px;
 `;
 
+const GalleryEx = styled.div`
+  width: 100%;
+  margin: 10% 0;
+
+`
+
 function Home() {
   const [gridLoaded, setGridLoaded] = useState(false);
-
+  const galleryRef = useRef(null)
   useEffect(
     () =>
       function MakeRow() {
@@ -154,10 +160,8 @@ function Home() {
             columns: 7,
             height: "400px",
             gap: "10px",
-            padding: { value: "20%", direction: "x" },
             alignment: "bottom",
             hoverAnimation: "width",
-            fixedHeight: true,
             images: [
               "https://images.unsplash.com/photo-1517314597476-e1788060b6cb?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
               "https://images.unsplash.com/photo-1517821099606-cef63a9bcda6?q=80&w=3569&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -170,14 +174,19 @@ function Home() {
           };
 
           const myRow = new Row(rowConfig);
-          document.body.appendChild(myRow.element);
+
+          if (galleryRef.current) {
+            galleryRef.current.appendChild(myRow.element);
+          }
 
           setGridLoaded(true);
 
           return () => {
             // Perform any cleanup here if needed
             // For example, remove the row element from the DOM
-            document.body.removeChild(myRow.element);
+            if (galleryRef.current) {
+              galleryRef.current.removeChild(myRow.element);
+            }
           };
         }
       },
@@ -204,6 +213,11 @@ function Home() {
           </NavButtonBg>
         </RightNav>
       </Navbar>
+
+    <GalleryEx ref={galleryRef}>
+      {/* Want to add the library example here */}
+    </GalleryEx>
+
       <BottomDiv>
         <BottomDivLeft>
           <Paragraph>
@@ -244,7 +258,7 @@ function Home() {
                 role="img"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
-                class="StyledIconBase-sc-ea9ulj-0 hRnJPC"
+                className="StyledIconBase-sc-ea9ulj-0 hRnJPC"
               >
                 <title>Npmjs icon</title>
                 <path d="M20 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h16zm-3 4H7v10h5V9.5h2.5V17H17V7z"></path>
