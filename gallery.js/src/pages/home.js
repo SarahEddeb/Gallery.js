@@ -43,6 +43,23 @@ const NavButtonText = styled.p`
   line-height: normal;
 `;
 
+const CTAButton = styled.p`
+  color: #cd292a;
+  font-family: "Roboto", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+`;
+
+
+const CTAIcon = styled.i`
+  color: #cd292a;
+  padding-top: 1px;
+  font-size: 24px;
+
+`;
+
 const NavButtonIcon = styled.i`
   height: 18px;
   width: 18px;
@@ -227,8 +244,8 @@ function Home() {
           </Paragraph>
 
           <NavButton>
-            <NavButtonText>Get Started</NavButtonText>
-            <NavButtonIcon className="bx bx-right-arrow-alt" />
+            <CTAButton>Get Started</CTAButton>
+            <CTAIcon className="bx bx-right-arrow-alt" />
           </NavButton>
         </BottomDivLeft>
 
