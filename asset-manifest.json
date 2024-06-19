@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://SarahEddeb.github.io/Gallery.js/static/css/main.5353cc63.css",
-    "main.js": "https://SarahEddeb.github.io/Gallery.js/static/js/main.6ea44ce1.js",
+    "main.js": "https://SarahEddeb.github.io/Gallery.js/static/js/main.f92a0530.js",
     "static/js/453.4ffa36b9.chunk.js": "https://SarahEddeb.github.io/Gallery.js/static/js/453.4ffa36b9.chunk.js",
     "static/media/boxicons.svg": "https://SarahEddeb.github.io/Gallery.js/static/media/boxicons.9e2b21b135bc7d4c803f.svg",
     "static/media/boxicons.eot": "https://SarahEddeb.github.io/Gallery.js/static/media/boxicons.65a8ce52fc5427e8f94d.eot",
@@ -10,11 +10,11 @@
     "static/media/boxicons.woff2": "https://SarahEddeb.github.io/Gallery.js/static/media/boxicons.df635aaf04cd75132f62.woff2",
     "index.html": "https://SarahEddeb.github.io/Gallery.js/index.html",
     "main.5353cc63.css.map": "https://SarahEddeb.github.io/Gallery.js/static/css/main.5353cc63.css.map",
-    "main.6ea44ce1.js.map": "https://SarahEddeb.github.io/Gallery.js/static/js/main.6ea44ce1.js.map",
+    "main.f92a0530.js.map": "https://SarahEddeb.github.io/Gallery.js/static/js/main.f92a0530.js.map",
     "453.4ffa36b9.chunk.js.map": "https://SarahEddeb.github.io/Gallery.js/static/js/453.4ffa36b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5353cc63.css",
-    "static/js/main.6ea44ce1.js"
+    "static/js/main.f92a0530.js"
   ]
 }
