@@ -5,7 +5,7 @@ import Documentation from "./pages/Documentation.js";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Gallery.js">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="documentation" element={<Documentation />} />
