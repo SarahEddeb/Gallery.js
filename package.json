@@ -1,24 +1,24 @@
 {
   "name": "photo-gallery.js",
-  "version": "2.0.1",
+  "version": "2.3.2",
   "description": "photo gallery javascript library",
-  "main": "src/gallery2.js",
+  "main": "src/gallery.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SarahEddeb/Grids"
+    "url": "git+https://github.com/SarahEddeb/Gallery.js"
   },
   "author": "Sarah Eddeb",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SarahEddeb/Grids/issues"
+    "url": "https://github.com/SarahEddeb/Gallery.js/issues"
   },
-  "homepage": "https://saraheddeb.github.io/Grids/pub/gridsLanding.html",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "jquery": "^3.7.1"
   },
   "keywords": [
     "photo gallery",
