@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavbarDiv = styled.div`
   align-items: center;
@@ -79,17 +80,23 @@ const RightNav = styled.div`
 const Navbar = () => {
   return (
     <NavbarDiv>
-      <LibraryName>gallery.js</LibraryName>
+      <Link to="/" style={{textDecoration: "none"}}>
+        <LibraryName>gallery.js</LibraryName>
+      </Link>
       <RightNav>
-        <NavButton>
-          <NavButtonIcon className="bx bx-code-curly" />
-          <NavButtonText>Documentation</NavButtonText>
-        </NavButton>
+        <Link to="/documentation">
+          <NavButton>
+            <NavButtonIcon className="bx bx-code-curly" />
+            <NavButtonText>Documentation</NavButtonText>
+          </NavButton>
+        </Link>
 
-        <NavButton>
-          <NavButtonIcon className="bx bx-grid" />
-          <NavButtonText>Examples</NavButtonText>
-        </NavButton>
+        <Link to="/examples">
+          <NavButton>
+            <NavButtonIcon className="bx bx-grid" />
+            <NavButtonText>Examples</NavButtonText>
+          </NavButton>
+        </Link>
 
         <NavButtonBg>
           <NavButtonBgText>Download</NavButtonBgText>
