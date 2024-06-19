@@ -77,13 +77,11 @@ const CodeSnippet = styled.code`
 `;
 
 const SubSections = styled.div`
-  background-color: #dcf3f7;
-  // border-radius: 50px;
-  // padding: 15px 26px;
+  // background-color: #dcf3f7;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 
   position: fixed;
 
@@ -130,21 +128,100 @@ const Table = styled.div`
   width: 100%;
 `;
 
+const ContentsTag = styled.span`
+  font-family: "Roboto Mono", Helvetica;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  color: #cd292a;
+  margin-top: 5px;
+
+  cursor: pointer;
+`;
+
+const ContentsSubTag = styled.span`
+  font-family: "Roboto Mono", Helvetica;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #cd292a;
+  cursor: pointer;
+`;
+
+const CTAIcon = styled.i`
+  color: #cd292a;
+  padding-top: 1px;
+  margin-right: 5px;
+  font-size: 14px;
+`;
+
 const Documentation = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    const offset = 50;
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <SubSections>
-        <SectionLabel>/Getting Started</SectionLabel>
-        <SectionLabel>/Installation</SectionLabel>
-        <SectionLabel>/Importing</SectionLabel>
-        <SectionLabel>/Creation</SectionLabel>
+        <ContentsTag onClick={() => scrollToSection("getting-started")}>Getting Started</ContentsTag>
+        <ContentsSubTag onClick={() => scrollToSection("npm")}>
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Installing using npm
+        </ContentsSubTag>
+        <ContentsSubTag onClick={() => scrollToSection("download")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Download
+        </ContentsSubTag>
+        <ContentsTag onClick={() => scrollToSection("importing")}>Importing</ContentsTag>
+        <ContentsSubTag onClick={() => scrollToSection("html")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          HTML
+        </ContentsSubTag>
+        <ContentsSubTag onClick={() => scrollToSection("javascript")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Javascript
+        </ContentsSubTag>
+        <ContentsSubTag onClick={() => scrollToSection("react")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          React
+        </ContentsSubTag>
+        <ContentsTag onClick={() => scrollToSection("row")}>Row</ContentsTag>
+        <ContentsSubTag onClick={() => scrollToSection("basic-row")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Basic Row
+        </ContentsSubTag>
+        <ContentsSubTag onClick={() => scrollToSection("advanced-features")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Advanced Features
+        </ContentsSubTag>
+        <ContentsSubTag onClick={() => scrollToSection("row-props")}>
+          {" "}
+          <CTAIcon className="bx bx-right-arrow-alt" />
+          Row Props
+        </ContentsSubTag>
       </SubSections>
       <Container>
         <Navbar />
       </Container>
 
       <ContentDiv>
-        <Section>
+        <Section id="getting-started">
           <H1>Getting Started</H1>
           <Body>
             This guide will walk you through installing and using the{" "}
@@ -154,7 +231,7 @@ const Documentation = () => {
           </Body>
         </Section>
 
-        <Section>
+        <Section id="npm">
           <SectionLabel>/Installation</SectionLabel>
           <H2>Installing using npm</H2>
           <Body>
@@ -165,7 +242,7 @@ const Documentation = () => {
           <CodeSnippet>npm install photo-gallery.js</CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="download">
           <H2>Download</H2>
           <Body>
             If you prefer to use the library directly without npm, you can
@@ -174,10 +251,10 @@ const Documentation = () => {
           </Body>
         </Section>
 
-        <Section>
+        <Section id="importing">
           <SectionLabel>/Importing</SectionLabel>
 
-          <H2>Importing in an HTML File</H2>
+          <H2 id="html">Importing in an HTML File</H2>
           <Body>
             To use <SmallLibraryName>gallery.js</SmallLibraryName> in an HTML
             file, you need to include the library script. If you have downloaded
@@ -209,7 +286,7 @@ const Documentation = () => {
           </CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="javascript">
           <H2>Importing in Vanilla JavaScript</H2>
           <Body>
             In a vanilla JavaScript project, you can import the library after
@@ -230,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="react">
           <H2>Importing in a React Project</H2>
           <Body>
             In a React project, you can import the library after installing it
@@ -258,7 +335,7 @@ export default GalleryComponent;`}
           </CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="row">
           <H1>Row</H1>
           <Body>
             This guide will walk you through installing and using the gallery.js
@@ -267,7 +344,7 @@ export default GalleryComponent;`}
           </Body>
         </Section>
 
-        <Section>
+        <Section id="basic-row">
           <H2>Basic Row</H2>
           <Body>
             To install the gallery.js library using npm, run the following
@@ -283,7 +360,7 @@ const row = new Row({
           </CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="advanced-features">
           <H2>Advanced Features</H2>
           <Body>
             To install the gallery.js library using npm, run the following
@@ -311,7 +388,7 @@ const row = new Row({
           </CodeSnippet>
         </Section>
 
-        <Section>
+        <Section id="row-props">
           <H2>Row Props</H2>
           <Body>
             To install the gallery.js library using npm, run the following
