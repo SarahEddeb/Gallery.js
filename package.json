@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/SarahEddeb/Gallery.js/issues"
   },
-  "homepage": "https://saraheddeb.github.io/Gallery.js/pub/gridsLanding.html",
   "dependencies": {
     "express": "^4.19.2",
     "jquery": "^3.7.1"
