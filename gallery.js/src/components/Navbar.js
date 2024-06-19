@@ -80,7 +80,7 @@ const RightNav = styled.div`
 const Navbar = () => {
   return (
     <NavbarDiv>
-      <Link to="/" style={{textDecoration: "none"}}>
+      <Link to="/" style={{ textDecoration: "none" }}>
         <LibraryName>gallery.js</LibraryName>
       </Link>
       <RightNav>
@@ -98,9 +98,11 @@ const Navbar = () => {
           </NavButton>
         </Link>
 
-        <NavButtonBg>
-          <NavButtonBgText>Download</NavButtonBgText>
-        </NavButtonBg>
+        <a href="https://github.com/SarahEddeb/Gallery.js" rel='noopener noreferrer' target="_blank">
+          <NavButtonBg>
+            <NavButtonBgText>Download</NavButtonBgText>
+          </NavButtonBg>
+        </a>
       </RightNav>
     </NavbarDiv>
   );
