@@ -4,7 +4,7 @@ import Row from "photo-gallery.js";
 import "../index.css";
 import Navbar from "../components/Navbar";
 import ExternalLinkIcons from "../components/ExternalLinkIcons";
-
+import { Link } from "react-router-dom";
 
 const NavButton = styled.div`
   align-items: center;
@@ -15,7 +15,6 @@ const NavButton = styled.div`
   cursor: pointer;
 `;
 
-
 const CTAButton = styled.p`
   color: #cd292a;
   font-family: "Roboto", Helvetica;
@@ -25,12 +24,10 @@ const CTAButton = styled.p`
   line-height: normal;
 `;
 
-
 const CTAIcon = styled.i`
   color: #cd292a;
   padding-top: 1px;
   font-size: 24px;
-
 `;
 
 const NavButtonIcon = styled.i`
@@ -77,12 +74,11 @@ const BottomDivLeft = styled.div`
 const GalleryEx = styled.div`
   width: 100%;
   margin: 10% 0;
-
-`
+`;
 
 function Home() {
   const [gridLoaded, setGridLoaded] = useState(false);
-  const galleryRef = useRef(null)
+  const galleryRef = useRef(null);
   useEffect(
     () =>
       function MakeRow() {
@@ -129,9 +125,7 @@ function Home() {
     <Container>
       <Navbar />
 
-    <GalleryEx ref={galleryRef}>
-      {/* Want to add the library example here */}
-    </GalleryEx>
+      <GalleryEx ref={galleryRef} />
 
       <BottomDiv>
         <BottomDivLeft>
@@ -141,14 +135,16 @@ function Home() {
             allows you to define rows of images with various configurations.
           </Paragraph>
 
-          <NavButton>
-            <CTAButton>Get Started</CTAButton>
-            <CTAIcon className="bx bx-right-arrow-alt" />
-          </NavButton>
+          <Link to="/documentation">
+            <NavButton>
+              <CTAButton>Get Started</CTAButton>
+              <CTAIcon className="bx bx-right-arrow-alt" />
+            </NavButton>
+          </Link>
         </BottomDivLeft>
 
         <NavButtonIcon></NavButtonIcon>
-        <ExternalLinkIcons/>
+        <ExternalLinkIcons />
       </BottomDiv>
     </Container>
   );
