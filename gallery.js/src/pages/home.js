@@ -104,6 +104,7 @@ function Home() {
 
           if (galleryRef.current) {
             galleryRef.current.appendChild(myRow.element);
+            console.log("Gallery element appended successfully");
           }
 
           setGridLoaded(true);
@@ -117,8 +118,7 @@ function Home() {
           };
         }
       },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [gridLoaded]
   );
 
   return (
