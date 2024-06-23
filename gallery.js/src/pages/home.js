@@ -79,47 +79,50 @@ const GalleryEx = styled.div`
 function Home() {
   const [gridLoaded, setGridLoaded] = useState(false);
   const galleryRef = useRef(null);
-  useEffect(
-    () =>
-      function MakeRow() {
-        if (!gridLoaded) {
-          const rowConfig = {
-            columns: 7,
-            height: "400px",
-            gap: "10px",
-            alignment: "bottom",
-            hoverAnimation: "width",
-            images: [
-              "https://images.unsplash.com/photo-1517314597476-e1788060b6cb?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1517821099606-cef63a9bcda6?q=80&w=3569&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1517137855257-7a5080c05dd8?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1517227428644-e7521e622e5a?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1517137660927-27542f89984d?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1510234591826-c5a87a6832c9?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1587289517919-b92407d60bbb?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            ],
-          };
+  useEffect(() => {
+    console.log("useEffect triggered");
 
-          const myRow = new Row(rowConfig);
+    function MakeRow() {
+      if (!gridLoaded) {
+        console.log("Creating row");
 
-          if (galleryRef.current) {
-            galleryRef.current.appendChild(myRow.element);
-            console.log("Gallery element appended successfully");
-          }
+        const rowConfig = {
+          columns: 7,
+          height: "400px",
+          gap: "10px",
+          alignment: "bottom",
+          hoverAnimation: "width",
+          images: [
+            "https://images.unsplash.com/photo-1517314597476-e1788060b6cb?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517821099606-cef63a9bcda6?q=80&w=3569&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517137855257-7a5080c05dd8?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517227428644-e7521e622e5a?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1517137660927-27542f89984d?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1510234591826-c5a87a6832c9?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1587289517919-b92407d60bbb?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          ],
+        };
 
-          setGridLoaded(true);
+        const myRow = new Row(rowConfig);
 
-          return () => {
-            // Perform any cleanup here if needed
-            // For example, remove the row element from the DOM
-            if (galleryRef.current) {
-              galleryRef.current.removeChild(myRow.element);
-            }
-          };
+        if (galleryRef.current) {
+          galleryRef.current.appendChild(myRow.element);
+          console.log("Gallery element appended successfully");
         }
-      },
-    [gridLoaded]
-  );
+
+        setGridLoaded(true);
+
+        return () => {
+          // Perform any cleanup here if needed
+          // For example, remove the row element from the DOM
+          if (galleryRef.current) {
+            galleryRef.current.removeChild(myRow.element);
+          }
+        };
+      }
+    }
+    MakeRow();
+  }, [gridLoaded]);
 
   return (
     <Container>
