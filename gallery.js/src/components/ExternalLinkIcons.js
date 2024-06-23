@@ -36,7 +36,7 @@ const ExternalLinkIcons = () => {
   return (
     <ExternalLinksDiv>
       <a
-        href="https://github.com/SarahEddeb/Gallery.js"
+        href="https://github.com/SarahEddeb/Photo-Gallery.js"
         rel="noopener noreferrer"
         target="_blank"
       >

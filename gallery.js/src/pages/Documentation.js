@@ -225,7 +225,7 @@ const Documentation = () => {
           <H1>Getting Started</H1>
           <Body>
             This guide will walk you through installing and using the{" "}
-            <SmallLibraryName>gallery.js</SmallLibraryName>
+            <SmallLibraryName>photo-gallery.js</SmallLibraryName>
             library in different environments, including an HTML file, a vanilla
             JavaScript project, and a React project.
           </Body>
@@ -235,7 +235,7 @@ const Documentation = () => {
           <SectionLabel>/Installation</SectionLabel>
           <H2>Installing using npm</H2>
           <Body>
-            To install the <SmallLibraryName>gallery.js</SmallLibraryName>{" "}
+            To install the <SmallLibraryName>photo-gallery.js</SmallLibraryName>{" "}
             library using npm, run the following command in your terminal:
           </Body>
 
@@ -256,7 +256,7 @@ const Documentation = () => {
 
           <H2 id="html">Importing in an HTML File</H2>
           <Body>
-            To use <SmallLibraryName>gallery.js</SmallLibraryName> in an HTML
+            To use <SmallLibraryName>photo-gallery.js</SmallLibraryName> in an HTML
             file, you need to include the library script. If you have downloaded
             the file, include it in your HTML file as follows:
           </Body>
@@ -338,7 +338,7 @@ export default GalleryComponent;`}
         <Section id="row">
           <H1>Row</H1>
           <Body>
-            This guide will walk you through installing and using the gallery.js
+            This guide will walk you through installing and using the photo-gallery.js
             library in different environments, including an HTML file, a vanilla
             JavaScript project, and a React project.
           </Body>
@@ -347,7 +347,7 @@ export default GalleryComponent;`}
         <Section id="basic-row">
           <H2>Basic Row</H2>
           <Body>
-            To install the gallery.js library using npm, run the following
+            To install the photo-gallery.js library using npm, run the following
             command in your terminal:
           </Body>
           <CodeSnippet>
@@ -363,7 +363,7 @@ const row = new Row({
         <Section id="advanced-features">
           <H2>Advanced Features</H2>
           <Body>
-            To install the gallery.js library using npm, run the following
+            To install the photo-gallery.js library using npm, run the following
             command in your terminal:
           </Body>
           <CodeSnippet>
@@ -391,7 +391,7 @@ const row = new Row({
         <Section id="row-props">
           <H2>Row Props</H2>
           <Body>
-            To install the gallery.js library using npm, run the following
+            To install the photo-gallery.js library using npm, run the following
             command in your terminal:
           </Body>
         </Section>

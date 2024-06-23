@@ -81,7 +81,7 @@ const Navbar = () => {
   return (
     <NavbarDiv>
       <Link to="/" style={{ textDecoration: "none" }}>
-        <LibraryName>gallery.js</LibraryName>
+        <LibraryName>photo-gallery.js</LibraryName>
       </Link>
       <RightNav>
         <Link to="/documentation">

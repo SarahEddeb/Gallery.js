@@ -1,22 +1,22 @@
-# Gallery.js
+# Photo-Gallery.js
 
-`gallery.js` is a JavaScript library for creating customizable image galleries. This library allows you to define rows of images with various configurations such as the number of columns, height, padding, alignment, hover animations, and gaps between items.
+`photo-gallery.js` is a JavaScript library for creating customizable image galleries. This library allows you to define rows of images with various configurations such as the number of columns, height, padding, alignment, hover animations, and gaps between items.
 
 ## Installation
 
 You can install the library via npm:
 
 ```sh
-npm install gallery.js
+npm install photo-gallery.js
 ```
 
 ## Usage
 
 ### Importing the Library
-To use gallery.js in your project, you need to import the Row class:
+To use photo-gallery.js in your project, you need to import the Row class:
 
 ```sh
-import Row from 'gallery.js';
+import Row from 'photo-gallery.js';
 ```
 
 ### Creating a Row

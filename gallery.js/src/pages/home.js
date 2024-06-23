@@ -133,7 +133,7 @@ function Home() {
       <BottomDiv>
         <BottomDivLeft>
           <Paragraph>
-            <SmallLibraryName>gallery.js</SmallLibraryName> is a JavaScript
+            <SmallLibraryName>photo-gallery.js</SmallLibraryName> is a JavaScript
             library for creating customizable image galleries. This library
             allows you to define rows of images with various configurations.
           </Paragraph>

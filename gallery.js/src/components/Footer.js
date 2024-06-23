@@ -36,7 +36,7 @@ const Footer = () => {
   return (
     <FooterDiv>
       <FooterLeft>
-        <SmallLibraryName>gallery.js</SmallLibraryName>
+        <SmallLibraryName>photo-gallery.js</SmallLibraryName>
         <CopyText>v2.3.2 | MIT License | 2024 | © Sarah Eddeb</CopyText>
       </FooterLeft>
       <ExternalLinkIcons />

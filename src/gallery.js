@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("gallery.js...");
+console.log("photo-gallery.js...");
 
 const alignmentTypesTop = ["top", "start", "flex-start"];
 const alignmentTypesBottom = ["bottom", "end", "flex-end"];
