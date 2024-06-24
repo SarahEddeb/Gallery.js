@@ -5,6 +5,8 @@ import "../index.css";
 import Navbar from "../components/Navbar";
 import ExternalLinkIcons from "../components/ExternalLinkIcons";
 import { Link } from "react-router-dom";
+import { breakpoints } from "../styles/breakpoints";
+// import Footer from "../components/Footer";
 
 const NavButton = styled.div`
   align-items: center;
@@ -38,8 +40,36 @@ const NavButtonIcon = styled.i`
 `;
 
 const Container = styled.div`
-  width: 60%;
-  margin: 0 20%;
+  display: block;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+
+  transition: all 0.3s ease;
+
+  @media (${breakpoints.lg}) {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
+
+  @media (${breakpoints.md}) {
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 86%;
+  }
+
+  @media (${breakpoints.sm}) {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+  }
+
+  @media (${breakpoints.xs}) {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    width: 97%;
+  }
 `;
 
 const Paragraph = styled.span`
@@ -79,6 +109,7 @@ const GalleryEx = styled.div`
 function Home() {
   const [gridLoaded, setGridLoaded] = useState(false);
   const galleryRef = useRef(null);
+
   useEffect(() => {
     console.log("useEffect triggered");
 
@@ -133,9 +164,10 @@ function Home() {
       <BottomDiv>
         <BottomDivLeft>
           <Paragraph>
-            <SmallLibraryName>photo-gallery.js</SmallLibraryName> is a JavaScript
-            library for creating customizable image galleries. This library
-            allows you to define rows of images with various configurations.
+            <SmallLibraryName>photo-gallery.js</SmallLibraryName> is a
+            JavaScript library for creating customizable image galleries. This
+            library allows you to define rows of images with various
+            configurations.
           </Paragraph>
 
           <Link to="/documentation">
