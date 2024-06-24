@@ -3,10 +3,39 @@ import styled from "styled-components";
 import "../index.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { breakpoints } from "../styles/breakpoints";
 
 const Container = styled.div`
-  width: 60%;
-  margin: 0 20%;
+  display: block;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+
+  transition: all 0.3s ease;
+
+  @media (${breakpoints.lg}) {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
+
+  @media (${breakpoints.md}) {
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 86%;
+  }
+
+  @media (${breakpoints.sm}) {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+  }
+
+  @media (${breakpoints.xs}) {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    width: 97%;
+  }
 `;
 
 const H1 = styled.h1`
@@ -14,6 +43,10 @@ const H1 = styled.h1`
   font-family: "Roboto", Helvetica;
   font-size: 40px;
   font-weight: 500;
+
+  @media (${breakpoints.md}) {
+    font-size: 30px;
+  }
 `;
 
 const H2 = styled.h2`
@@ -21,6 +54,10 @@ const H2 = styled.h2`
   font-family: "Roboto", Helvetica;
   font-size: 30px;
   font-weight: 500;
+
+  @media (${breakpoints.md}) {
+    font-size: 24px;
+  }
 `;
 
 const Body = styled.span`
@@ -28,6 +65,10 @@ const Body = styled.span`
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
+
+  @media (${breakpoints.md}) {
+    font-size: 18px;
+  }
 `;
 
 const SectionLabel = styled.p`
@@ -37,6 +78,10 @@ const SectionLabel = styled.p`
   font-weight: 500;
 
   color: #cd292a;
+
+  @media (${breakpoints.md}) {
+    font-size: 14px;
+  }
 `;
 
 const Section = styled.div`
@@ -52,8 +97,39 @@ const ContentDiv = styled.div`
 
   gap: 60px;
 
-  width: 50%;
-  margin: 100px 25% 200px 25%;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  margin-left: 15%;
+  margin-right: 15%;
+
+  margin: 100px 15% 200px 15%;
+  width: 70%;
+
+  transition: all 0.3s ease;
+
+  @media (${breakpoints.lg}) {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
+
+  @media (${breakpoints.md}) {
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 86%;
+  }
+
+  @media (${breakpoints.sm}) {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+  }
+
+  @media (${breakpoints.xs}) {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    width: 97%;
+  }
 `;
 
 const SmallLibraryName = styled.p`
@@ -62,6 +138,10 @@ const SmallLibraryName = styled.p`
   font-size: 20px;
   font-style: italic;
   font-weight: 500;
+
+  @media (${breakpoints.md}) {
+    font-size: 18px;
+  }
 `;
 
 const CodeSnippet = styled.code`
@@ -74,6 +154,10 @@ const CodeSnippet = styled.code`
   font-family: "Roboto Mono", Helvetica;
   font-size: 16px;
   white-space: pre-wrap;
+
+  @media (${breakpoints.md}) {
+    font-size: 14px;
+  }
 `;
 
 const SubSections = styled.div`
@@ -95,6 +179,10 @@ const TableHeaders = styled.span`
   font-family: "Roboto", Helvetica;
   font-size: 15px;
   font-weight: 500;
+
+  @media (${breakpoints.md}) {
+    font-size: 13px;
+  }
 `;
 
 const TableAttributes = styled.span`
@@ -103,6 +191,10 @@ const TableAttributes = styled.span`
   font-size: 15px;
   font-weight: 500;
   color: #cd292a;
+
+  @media (${breakpoints.md}) {
+    font-size: 13px;
+  }
 `;
 
 const TableText = styled.span`
@@ -111,6 +203,10 @@ const TableText = styled.span`
   font-size: 15px;
   font-weight: 400;
   color: #000000;
+
+  @media (${breakpoints.md}) {
+    font-size: 13px;
+  }
 `;
 
 const TableRow = styled.div`
@@ -138,6 +234,10 @@ const ContentsTag = styled.span`
   margin-top: 5px;
 
   cursor: pointer;
+
+  @media (${breakpoints.md}) {
+    font-size: 14px;
+  }
 `;
 
 const ContentsSubTag = styled.span`
@@ -148,6 +248,10 @@ const ContentsSubTag = styled.span`
 
   color: #cd292a;
   cursor: pointer;
+
+  @media (${breakpoints.md}) {
+    font-size: 12px;
+  }
 `;
 
 const CTAIcon = styled.i`
@@ -155,25 +259,32 @@ const CTAIcon = styled.i`
   padding-top: 1px;
   margin-right: 5px;
   font-size: 14px;
+
+  @media (${breakpoints.md}) {
+    font-size: 12px;
+  }
 `;
 
 const Documentation = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     const offset = 50;
-    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - offset;
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   return (
     <>
       <SubSections>
-        <ContentsTag onClick={() => scrollToSection("getting-started")}>Getting Started</ContentsTag>
+        <ContentsTag onClick={() => scrollToSection("getting-started")}>
+          Getting Started
+        </ContentsTag>
         <ContentsSubTag onClick={() => scrollToSection("npm")}>
           <CTAIcon className="bx bx-right-arrow-alt" />
           Installing using npm
@@ -183,7 +294,9 @@ const Documentation = () => {
           <CTAIcon className="bx bx-right-arrow-alt" />
           Download
         </ContentsSubTag>
-        <ContentsTag onClick={() => scrollToSection("importing")}>Importing</ContentsTag>
+        <ContentsTag onClick={() => scrollToSection("importing")}>
+          Importing
+        </ContentsTag>
         <ContentsSubTag onClick={() => scrollToSection("html")}>
           {" "}
           <CTAIcon className="bx bx-right-arrow-alt" />
@@ -256,9 +369,9 @@ const Documentation = () => {
 
           <H2 id="html">Importing in an HTML File</H2>
           <Body>
-            To use <SmallLibraryName>photo-gallery.js</SmallLibraryName> in an HTML
-            file, you need to include the library script. If you have downloaded
-            the file, include it in your HTML file as follows:
+            To use <SmallLibraryName>photo-gallery.js</SmallLibraryName> in an
+            HTML file, you need to include the library script. If you have
+            downloaded the file, include it in your HTML file as follows:
           </Body>
 
           <CodeSnippet>
@@ -338,9 +451,9 @@ export default GalleryComponent;`}
         <Section id="row">
           <H1>Row</H1>
           <Body>
-            This guide will walk you through installing and using the photo-gallery.js
-            library in different environments, including an HTML file, a vanilla
-            JavaScript project, and a React project.
+            This guide will walk you through installing and using the
+            photo-gallery.js library in different environments, including an
+            HTML file, a vanilla JavaScript project, and a React project.
           </Body>
         </Section>
 

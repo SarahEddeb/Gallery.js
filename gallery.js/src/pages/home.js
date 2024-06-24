@@ -24,12 +24,20 @@ const CTAButton = styled.p`
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
+
+  @media (${breakpoints.sm}) {
+    font-size: 18px;
+  }
 `;
 
 const CTAIcon = styled.i`
   color: #cd292a;
   padding-top: 1px;
   font-size: 24px;
+
+  @media (${breakpoints.sm}) {
+    font-size: 22px;
+  }
 `;
 
 const NavButtonIcon = styled.i`
@@ -76,7 +84,26 @@ const Paragraph = styled.span`
   font-family: "Roboto", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  width: 40%;
+  width: 45%;
+
+  transition: all 0.3s ease;
+
+  @media (${breakpoints.lg}) {
+    width: 50%;
+  }
+
+  @media (${breakpoints.md}) {
+    width: 60%;
+  }
+
+  @media (${breakpoints.sm}) {
+    width: 70%;
+    font-size: 18px;
+  }
+
+  @media (${breakpoints.xs}) {
+    width: 80%;
+  }
 `;
 
 const SmallLibraryName = styled.p`
@@ -85,12 +112,16 @@ const SmallLibraryName = styled.p`
   font-size: 20px;
   font-style: italic;
   font-weight: 500;
+
+  @media (${breakpoints.sm}) {
+    font-size: 18px;
+  }
 `;
 
 const BottomDiv = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%
+  // width: 60%
   gap: auto;
   justify-content: space-between;
 `;
