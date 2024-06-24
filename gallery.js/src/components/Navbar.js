@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { breakpoints } from "../styles/breakpoints";
 
 const NavbarDiv = styled.div`
   align-items: center;
@@ -22,6 +23,10 @@ const LibraryName = styled.span`
   line-height: 17.6px;
 
   cursor: pointer;
+
+  @media (${breakpoints.md}) {
+    font-size: 16px;
+  }
 `;
 
 const NavButton = styled.div`
@@ -40,6 +45,10 @@ const NavButtonText = styled.p`
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
+
+  @media (${breakpoints.md}) {
+    font-size: 13px;
+  }
 `;
 
 const NavButtonIcon = styled.i`
@@ -60,6 +69,11 @@ const NavButtonBg = styled.div`
   padding: 11px 18px;
 
   cursor: pointer;
+
+  @media (${breakpoints.md}) {
+    padding: 9px 12px;
+    gap: 5px;
+  }
 `;
 
 const NavButtonBgText = styled.p`
@@ -68,6 +82,10 @@ const NavButtonBgText = styled.p`
   font-size: 15px;
   font-weight: 500;
   line-height: normal;
+
+  @media (${breakpoints.md}) {
+    font-size: 13px;
+  }
 `;
 
 const RightNav = styled.div`
@@ -75,6 +93,10 @@ const RightNav = styled.div`
   display: inline-flex;
   gap: 25px;
   position: relative;
+
+  @media (${breakpoints.md}) {
+    gap: 15px;
+  }
 `;
 
 const Navbar = () => {
@@ -98,7 +120,11 @@ const Navbar = () => {
           </NavButton>
         </Link>
 
-        <a href="https://github.com/SarahEddeb/Gallery.js" rel='noopener noreferrer' target="_blank">
+        <a
+          href="https://github.com/SarahEddeb/Gallery.js"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <NavButtonBg>
             <NavButtonBgText>Download</NavButtonBgText>
           </NavButtonBg>
